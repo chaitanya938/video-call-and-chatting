@@ -2,9 +2,9 @@ services:
   - type: web
     name: zoom-backend
     env: node
-    rootDir: ./backend
-    buildCommand: npm install
-    startCommand: node src/app.js
+    rootDir: ./
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node src/app.js
     envVars:
       - key: PORT
         value: 10000

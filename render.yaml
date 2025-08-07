@@ -3,7 +3,7 @@ services:
     name: zoom-backend
     env: node
     rootDir: ./
-    buildCommand: cd backend && npm run render-build
+    buildCommand: cd backend && npm install
     startCommand: cd backend && node src/app.js
     envVars:
       - key: PORT

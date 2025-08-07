@@ -9,12 +9,12 @@
     "start": "node src/app.js",
     "build": "npm rebuild bcrypt --build-from-source && npm install",
     "prod": "pm2 start src/app.js",
-    "render-build": "npm install && npm rebuild bcrypt --build-from-source"
+    "render-build": "npm install && npm rebuild bcryptjs --build-from-source"
   },
   "author": "apnacollege",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^17.2.1",

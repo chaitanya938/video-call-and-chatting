@@ -19,8 +19,22 @@ const port = process.env.PORT || 8000;
 app.set("port", port);
 
 // CORS configuration
+const allowedOrigins = [
+  'https://video-call-and-chatting-frontend.onrender.com',
+  'http://localhost:3000'
+];
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true,
   optionsSuccessStatus: 200
 };

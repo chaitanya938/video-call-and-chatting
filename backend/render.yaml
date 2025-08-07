@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: zoom-backend
+    env: node
+    rootDir: ./
+    buildCommand: npm install
+    startCommand: node src/app.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: zoom-mongodb
+          property: connectionString
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.vercel.app
